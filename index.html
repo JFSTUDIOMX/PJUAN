@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Videos</title>
+    
+    <style>
+        /* Estilos generales: Fondo negro, texto blanco y detalles rojos */
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #ff0000;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+        }
+
+        /* Contenedor responsivo para los videos */
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Diseño de cada cuadro de video */
+        .video-box {
+            flex: 1 1 300px; /* Se adapta automáticamente al tamaño de la pantalla */
+            max-width: 380px; /* Ajustado ligeramente para que entren mejor 3 por fila en pantallas grandes */
+            background-color: #111111;
+            border: 2px solid #ff0000;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: #000;
+        }
+
+        .video-label {
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-top: 1px solid #ff0000;
+        }
+
+        /* Botón de control mediante JavaScript */
+        .btn-control {
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            margin-top: 40px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-control:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Galería PELISJUAN</h1>
+
+    <div class="video-container">
+        <div class="video-box">
+            <video id="video1" controls poster="klk/portada1.png">
+                <source src="klk/video1.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
+            </video>
+            <div class="video-label">SWAT 1</div>
+        </div>
+
+        <div class="video-box">
+            <video id="video2" controls poster="klk/portada1.png">
+                <source src="klk/video2.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
+            </video>
+            <div class="video-label">SWAT 2</div>
+        </div>
+
+        <div class="video-box">
+           <video id="video3" controls poster="klk/portada2.png">
+                <source src="klk/video3.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
+            </video>
+            <div class="video-label">Battleship</div>
+        </div>
+
+        <div class="video-box">
+            <video id="video4" controls poster="klk/portada3.png">
+                <source src="klk/video4.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
+            </video>
+            <div class="video-label">Los Simpson</div>
+        </div>
+
+        <div class="video-box">
+            <video id="video5" controls poster="klk/portada3.png">
+                <source src="klk/video5.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
+            </video>
+            <div class="video-label">Los Simpson</div>
+        </div>
+
+        <div class="video-box">
+            <video id="video6" controls poster="klk/portada4.png">
+                <source src="klk/video6.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de este video.
+            </video>
+            <div class="video-label">Troll</div>
+        </div>
+    </div>
+
+    <button class="btn-control" onclick="detenerVideos()">Pausar Todos los Videos</button>
+
+    <script>
+        // Lógica de JavaScript para controlar los 6 videos
+        function detenerVideos() {
+            // Buscamos y pausamos cada uno de los 6 videos mediante su ID
+            for (let i = 1; i <= 6; i++) {
+                const video = document.getElementById(`video${i}`);
+                if (video) {
+                    video.pause();
+                }
+            }
+            console.log("Acción ejecutada: Los 6 videos han sido pausados.");
+        }
+    </script>
+
+</body>
+</html>
